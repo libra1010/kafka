@@ -16,7 +16,7 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: CLIENT
       KAFKA_SASL_ENABLED_MECHANISMS: PLAIN    
       KAFKA_SASL_MECHANISM_INTER_BROKER_PROTOCOL: PLAIN  
-      CUSTOM_INIT_SCRIPT: "export KAFKA_OPTS="-Djava.security.auth.login.config=/kafka_jaas.conf"
+      CUSTOM_INIT_SCRIPT: "export KAFKA_OPTS=-Djava.security.auth.login.config=/kafka_jaas.conf"
     volumes:
        - /mnt/vdb1/kafka/zkjaas.conf:/kafka_jaas.conf
 
@@ -25,8 +25,7 @@ services:
    
       
       
-
 networks:
   zookeeper_zk-net:
     external:
-    name: zookeeper_zk-net
+      name: zookeeper_zk-net
